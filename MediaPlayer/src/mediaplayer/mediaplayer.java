@@ -14,7 +14,7 @@ import javax.sound.sampled.FloatControl;
 public class MediaPlayer {
 
     private Clip audioClip;
-    // private FloatControl gainControl;
+    private FloatControl gainControl;
     // private float volMax;
     // private float volMin;
     // private float volume;
