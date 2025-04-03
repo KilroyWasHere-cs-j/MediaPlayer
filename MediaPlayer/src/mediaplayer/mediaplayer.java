@@ -14,10 +14,10 @@ import javax.sound.sampled.FloatControl;
 public class MediaPlayer {
 
     private Clip audioClip;
-    private FloatControl gainControl;
-    private float volMax;
-    private float volMin;
-    private float volume;
+    // private FloatControl gainControl;
+    // private float volMax;
+    // private float volMin;
+    // private float volume;
 
     /**
      * Loads an audio file from the specified file path.
