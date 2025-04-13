@@ -1,104 +1,98 @@
 package mediaplayer;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 
 public class Main extends Application {
-    private static MediaController mediaController;
+    private static MediaPlayer mediaPlayer;
+    private static double frame_position;
+    private static double max_frame_position;
 
     public void playaudio() {
-        if (mediaController.paths.length <= 1) {
-            System.out.print("Playing through audio");
-            mediaController.play_through();
-        } else {
-            System.err.println("No audio loaded");
-        }
+        mediaPlayer.play();
     }
 
     public void pauseaudio() {
-        mediaController.stop();
+        mediaPlayer.stop();
     }
 
     public void forward() {
-        mediaController.fast_forward();
+        mediaPlayer.fast_backward();
     }
 
     public void backward() {
-        mediaController.fast_backward();
+        mediaPlayer.fast_backward();
     }
 
     public void start(Stage s) 
     { 
-        // set title for the stage 
-        s.setTitle("creating buttons"); 
-  
-        // create a button 
-        Button b = new Button("play"); 
-        Button c = new Button("pause"); 
+               // Set title for the stage
+        s.setTitle("Media Player");
+
+        // Create buttons
+        Button b = new Button("play");
+        Button c = new Button("pause");
         Button d = new Button("forward");
         Button e = new Button("backward");
-  
-        // create a stack pane 
-      StackPane r = new StackPane(); 
-  
 
+        // Create HBox layout for buttons to be placed side by side
+        HBox hbox = new HBox(10); // 10 is the spacing between buttons
 
-        EventHandler<ActionEvent> bevent = new EventHandler<ActionEvent>() { 
-            public void handle(ActionEvent e) 
-            { 
+        // Event handlers for buttons
+        EventHandler<ActionEvent> bevent = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e) {
                 playaudio();
-            } 
-        }; 
+            }
+        };
 
-        EventHandler<ActionEvent> cevent = new EventHandler<ActionEvent>() { 
-            public void handle(ActionEvent e) 
-            { 
+        EventHandler<ActionEvent> cevent = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e) {
                 pauseaudio();
-            } 
-        }; 
+            }
+        };
 
-        EventHandler<ActionEvent> devent = new EventHandler<ActionEvent>() { 
-            public void handle(ActionEvent e) 
-            { 
+        EventHandler<ActionEvent> devent = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e) {
                 forward();
-            } 
-        }; 
+            }
+        };
 
-        EventHandler<ActionEvent> eevent = new EventHandler<ActionEvent>() { 
-            public void handle(ActionEvent e) 
-            { 
+        EventHandler<ActionEvent> eevent = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e) {
                 backward();
-            } 
-        }; 
+            }
+        };
 
-        b.setOnAction(bevent); 
+        // Set actions for buttons
+        b.setOnAction(bevent);
         c.setOnAction(cevent);
         d.setOnAction(devent);
         e.setOnAction(eevent);
-        r.getChildren().add(b); 
-        r.getChildren().add(c);
-        r.getChildren().add(d);
-        r.getChildren().add(e);
-  
-        // create a scene 
-        Scene sc = new Scene(r, 200, 200); 
-  
-        // set the scene 
-        s.setScene(sc); 
-  
-        s.show(); 
+
+        // Add buttons to HBox
+        hbox.getChildren().addAll(b, c, d, e);
+
+        // Create a scene with the HBox layout
+        Scene sc = new Scene(hbox, 400, 100); // Increased width for the buttons to fit
+        s.setScene(sc);
+
+        // Show the stage
+        s.show();
     }
 
     public static void main(String args[]) 
     { 
-        String[] paths = { "nat_1.wav" };
-        mediaController = new MediaController();
-        mediaController.load_paths(paths);
-        // launch the application 
+        String path = "nat_1.wav";
+        mediaPlayer = new MediaPlayer();
+        mediaPlayer.load("C:\\Users\\Gabriel\\Documents\\Git\\MediaPlayer\\MediaPlayer\\src\\mediaplayer\\n" + //
+                        "at_1.wav");
+        max_frame_position = mediaPlayer.getFrameLength();
         launch(args); 
     } 
 }

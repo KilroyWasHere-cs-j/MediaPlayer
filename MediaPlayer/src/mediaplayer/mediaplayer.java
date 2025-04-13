@@ -92,6 +92,13 @@ public class MediaPlayer {
         }
     }
 
+    public double getFramePosition() {
+        return audioClip.getFramePosition();
+    }
+
+    public double getFrameLength() {
+        return audioClip.getFrameLength();
+    }
     /**
      * Sets the volume of the audio playback.
      *

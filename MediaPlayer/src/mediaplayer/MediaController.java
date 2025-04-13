@@ -68,6 +68,7 @@ public class MediaController {
     public void fast_backward() {
         mediaPlayer.fast_backward();
     }
+    
     /**
      * Adds a String to a String array, returning a new array with the added element.
      *

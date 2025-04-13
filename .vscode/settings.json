@@ -1,0 +1,16 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "MediaPlayer/lib/javafx.base.jar",
+        "MediaPlayer/lib/javafx.controls.jar",
+        "MediaPlayer/lib/javafx.fxml.jar",
+        "MediaPlayer/lib/javafx.graphics.jar",
+        "MediaPlayer/lib/javafx.media.jar",
+        "MediaPlayer/lib/javafx.swing.jar",
+        "MediaPlayer/lib/javafx.web.jar",
+        "MediaPlayer/lib/javafx-swt.jar",
+        "MediaPlayer/lib/jdk.jsobject.jar",
+        "MediaPlayer/lib/jfx.incubator.input.jar",
+        "MediaPlayer/lib/jfx.incubator.richtext.jar"
+    ]
+}
