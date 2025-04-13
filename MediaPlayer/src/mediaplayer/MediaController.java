@@ -57,6 +57,17 @@ public class MediaController {
         }
     }
 
+    public void stop() {
+        mediaPlayer.stop();
+    }
+
+    public void fast_forward() {
+        mediaPlayer.fast_forward();
+    }
+
+    public void fast_backward() {
+        mediaPlayer.fast_backward();
+    }
     /**
      * Adds a String to a String array, returning a new array with the added element.
      *
